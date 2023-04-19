@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/script.js" defer></script>
+    <title>Frontend Mentor | Interactive pricing component</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="content-wrapper">
+        <section class="header">
+          <h1>Simple, traffic-based pricing</h1>
+          <p>Sign-up for our 30-day trial. No credit card required.</p>
+        </section>
+        <section class="card">
+          <h2 class="pageviews"><span>100k</span> Pageviews</h2>
+          <input type="range" min="0" max="10" value="5" class="slider-bar" />
+          <p class="pricing">
+            <span class="normal">$16.00</span>
+            <span class="discount">$144</span>
+            /month
+          </p>
+
+          <div class="payments">
+            <p class="monthly">Monthly Billing</p>
+            <button class="btn-payment" type="button">
+              <span class="circle"></span>
+            </button>
+
+            <p class="yearly">
+              Yearly Billing
+              <span class="discount-percent">
+                25% <span class="discount-text">discount</span>
+              </span>
+            </p>
+          </div>
+          <div class="layout-flex">
+            <ul class="features">
+              <li>
+                <img src="/images/icon-check.svg" alt="" aria-hidden="true" />
+                Unlimited websites
+              </li>
+              <li>
+                <img src="/images/icon-check.svg" alt="" aria-hidden="true" />
+                100% data ownership
+              </li>
+              <li>
+                <img src="/images/icon-check.svg" alt="" aria-hidden="true" />
+                Email reports
+              </li>
+            </ul>
+            <button class="btn-sign-up" type="button">Start my trial</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

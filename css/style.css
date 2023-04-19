@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+
+:root {
+  --full-slider: hsl(174, 77%, 80%);
+  --slider-bg: hsl(174, 86%, 45%);
+  --discount-bg: hsl(14, 92%, 95%);
+  --discount-text: hsl(15, 100%, 70%);
+  --cta-text: hsl(226, 100%, 87%);
+  --pricing-component-bg: hsl (0, 0%, 100%);
+  --main-bg: hsl(230, 100%, 99%);
+  --empty-slider: hsl(224, 65%, 95%);
+  --toggle-bg: hsl(223, 50%, 87%);
+  --text: hsl(225, 20%, 60%);
+  --text-cta-bg: hsl(227, 35%, 25%);
+
+  --ff: "Manrope", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background: url(/images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--main-bg);
+  color: var(--text);
+  font-family: var(--ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  flex-grow: 1;
+  max-width: 35rem;
+  margin-inline: 2rem;
+  margin-block: 3.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.header::after {
+  content: "";
+  width: 8rem;
+  aspect-ratio: 1/1;
+  background-image: url(/images/pattern-circles.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -65%;
+  left: 35%;
+  /* transform: translate(-50%, -50%); */
+  z-index: -1;
+}
+
+.header h1 {
+  color: var(--text-cta-bg);
+  margin-bottom: 0.8rem;
+}
+
+.header p {
+  max-width: 15rem;
+  font-size: 0.85rem;
+  margin: 0 auto;
+}
+
+.card {
+  width: 100%;
+  background-color: var(--main-bg);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1.3rem -0.5rem var(--toggle-bg);
+}
+
+.card .pageviews {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.card .slider-bar {
+  appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  outline: none;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(
+    to right,
+    var(--full-slider) 50%,
+    var(--empty-slider) 50% 100%
+  );
+  transition: background 400ms ease-in;
+}
+
+.card .slider-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 2rem;
+  aspect-ratio: 1/1;
+  background-color: var(--slider-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.card .slider-bar::-webkit-slider-thumb:hover {
+  background-color: hsl(174, 86%, 40%);
+}
+
+.card .pricing {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.card .pricing span {
+  font-size: 1.5rem;
+  color: var(--text-cta-bg);
+  font-weight: 800;
+}
+
+.card .pricing .discount {
+  display: none;
+}
+
+.card .payments {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 2.5rem;
+  font-size: 0.85rem;
+}
+
+.card .payments .btn-payment {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background-color: var(--toggle-bg);
+  border-radius: 1rem;
+  position: relative;
+  cursor: pointer;
+  transition: 300ms linear;
+}
+
+.card .payments .btn-payment:hover {
+  opacity: 0.7;
+}
+
+.card .payments .btn-payment .circle {
+  width: 1rem;
+  aspect-ratio: 1/1;
+  background-color: var(--main-bg);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0.3rem;
+  transform: translateY(-50%);
+  transition: 300ms linear;
+}
+
+/* Active state start */
+
+.card .payments .btn-payment.active {
+  background-color: var(--slider-bg);
+}
+
+.card .payments .btn-payment .circle.active {
+  left: 1.6rem;
+}
+
+/* Active state end */
+
+.card .payments .yearly .discount-percent {
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--discount-bg);
+  color: var(--discount-text);
+  margin-left: 0.5rem;
+}
+
+.card .payments .yearly .discount-text {
+  display: none;
+}
+
+.card .layout-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card .features {
+  list-style: none;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.card .features > * + * {
+  margin-top: 0.5rem;
+}
+
+.card .features li img {
+  margin-right: 0.5rem;
+}
+
+.card .btn-sign-up {
+  font-family: inherit;
+  display: flex;
+  margin-inline: auto;
+  text-align: center;
+  border: none;
+  padding: 0.7rem 1.7rem;
+  border-radius: 1.2rem;
+  background-color: var(--text-cta-bg);
+  color: var(--cta-text);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 300ms ease-in;
+}
+
+.card .btn-sign-up:hover {
+  color: var(--main-bg);
+}
+
+@media screen and (min-width: 40rem) {
+  .card {
+    padding: 2.5rem;
+  }
+
+  .card .payments .yearly .discount-text {
+    display: inline-block;
+  }
+
+  .card .layout-flex {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .card .features {
+    text-align: left;
+  }
+
+  .card .btn-sign-up {
+    margin-right: 0;
+  }
+}
